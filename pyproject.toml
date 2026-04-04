@@ -1,7 +1,7 @@
 [project]
-name = "esp32-web"
+name = "accelerometer-web-dashboard"
 version = "0.1.0"
-description = "ESP32 data web server"
+description = "Accelerometer data web dashboard from MATLAB"
 readme = "README.md"
 requires-python = ">=3.11"
 

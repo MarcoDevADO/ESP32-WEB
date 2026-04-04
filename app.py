@@ -50,7 +50,7 @@ def download_pdf():
     elements = []
 
     styles = getSampleStyleSheet()
-    elements.append(Paragraph("Reporte de Datos ESP32", styles['Title']))
+    elements.append(Paragraph("Reporte de Datos de Acelerómetro", styles['Title']))
     elements.append(Spacer(1, 12))
 
     # Crear tabla
@@ -74,7 +74,7 @@ def download_pdf():
     return send_file(
         buffer,
         as_attachment=True,
-        download_name="reporte_esp32.pdf",
+        download_name="reporte_acelerometro.pdf",
         mimetype='application/pdf'
     )
 

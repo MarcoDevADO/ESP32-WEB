@@ -1,10 +1,12 @@
-# ESP32-WEB
+# Accelerometer-Web-Dashboard
 
-Servidor web en Python para visualizar datos enviados desde un ESP32.
+Servidor web en Python para visualizar datos de acelerómetro enviados desde una aplicación en MATLAB hacia una página alojada en render.com.
 
 ## Descripción
 
-Este proyecto monta un dashboard web con Flask que recibe datos de sensores (`AX`, `AY`, `AZ` y `EMG`) y los muestra en una tabla y en gráficas dinámicas. También permite generar un PDF con el historial de lecturas y borrar los datos almacenados en memoria.
+Este proyecto monta un dashboard web con Flask que recibe datos de acelerómetro desde MATLAB (`AX`, `AY`, `AZ` y `EMG`) y los muestra en una tabla y en gráficas dinámicas dentro de una página alojada en render.com. También permite generar un PDF con el historial de lecturas y borrar los datos almacenados en memoria.
+
+![Dashboard Accelerometer-Web-Dashboard](imagenes/Captura%20de%20pantalla%202026-04-03%20213414.png)
 
 ## Tecnologías
 
@@ -21,6 +23,12 @@ Este proyecto monta un dashboard web con Flask que recibe datos de sensores (`AX
 - Descarga un reporte en PDF con el historial
 - Borra los datos en memoria
 - Endpoints REST para envío y consulta de datos
+
+## Flujo de datos
+
+- MATLAB envía los datos a `POST /update`.
+- Flask recibe los valores y los guarda en memoria.
+- La página alojada en render.com muestra los datos en tiempo real.
 
 ## Instalación
 
@@ -83,6 +91,6 @@ http://127.0.0.1:5000/
 
 ## Uso esperado
 
-1. El ESP32 o cualquier cliente envía datos a `POST /update`.
-2. La web consulta `GET /data` para mostrar la información.
+1. MATLAB envía datos a `POST /update` hacia el servidor Flask.
+2. La página renderizada en `GET /` recibe y visualiza los datos en la tabla y las gráficas.
 3. El usuario puede descargar el reporte en PDF o borrar los datos actuales.
